@@ -27,14 +27,14 @@ function Login() {
         </div>
         <span className='auth__message'>{''}</span>
         <button
-          className={`auth__submit text`}
+          className={`auth__submit auth__submit-login text`}
           disabled={''}
         >
           Войти
         </button>
         <div className='auth__link-container'>
-          <p className='text color_text'>Ещё не зарегистрированы?</p>
-          <Link to='/sign-up' className='auth__link text'>
+          <p className='text auth__text-login color_text'>Ещё не зарегистрированы?</p>
+          <Link to='/signup' className='auth__link text'>
             Регистрация
           </Link>
         </div>

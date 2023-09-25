@@ -12,6 +12,7 @@
 
 .footer__title {
   text-align: center;
+  font-size: 13px;
 }
 
 .footer__row {
@@ -26,29 +27,36 @@
   margin: 0;
   display: flex;
   gap: 20px;
+  font-size: 13px;
 }
 
 @media screen and (max-width: 768px) {
   .footer {
-    padding: 80px 50px 20px 50px;
+    padding: 80px 30px 20px 30px;
   }
 }
 
 @media screen and (max-width: 320px) {
   .footer {
-    padding: 80px 10px 10px 10px;
+    padding: 60px 10px 10px 10px;
   }
 
   .footer__row {
     align-items: center;
     flex-direction: column-reverse;
-    gap: 30px;
+    gap: 25px;
     color: rgba(139, 139, 139, 1);
   }
-
+  .footer__title {
+    font-size: 12px;
+  }
+  .footer__row {
+    padding-top: 45px;
+  }
   .footer__list {
     align-items: center;
     flex-direction: column;
     gap: 12px;
+    font-size: 12px;
   }
 }

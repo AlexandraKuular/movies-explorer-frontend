@@ -1,4 +1,11 @@
+import { useNavigate } from "react-router-dom";
+
 function Profile() {
+  const navigate = useNavigate();
+
+  function handleLogout() {
+    navigate('/');
+  }
   return (
     <section className='profile'>
       <h1 className='profile__title text_medium'>Привет, Виталий!</h1>
@@ -9,6 +16,7 @@ function Profile() {
             type='text'
             className='profile__input'
             minLength={2}
+            placeholder='Виталий'
           />
         </label>
         <label className='profile__label'>
@@ -16,6 +24,7 @@ function Profile() {
             name='email'
             type='text'
             className='profile__input'
+            placeholder='pochta@yandex.ru'
           />
         </label>
         <button
@@ -25,7 +34,7 @@ function Profile() {
           Редактировать
         </button>
       </form>
-      <button className='profile__logout link text' >
+      <button className='profile__logout link text' onClick={handleLogout} >
         Выйти из аккаунта
       </button>
     </section>

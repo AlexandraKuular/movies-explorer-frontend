@@ -1,4 +1,4 @@
-function MoviesCard({ movie }) {
+function MoviesCard() {
 
   return (
     <article className='card'>

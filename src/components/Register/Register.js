@@ -15,16 +15,19 @@ function Register() {
             type='text'
             name='name'
             title='Имя'
+            placeholder='Имя'
           />
           <Input
             type='email'
             name='email'
             title='E-mail'
+            placeholder='Почта'
           />
           <Input
             type='password'
             name='password'
             title='Пароль'
+            placeholder='Пароль'
           />
         </div>
         <span className='auth__message'>{''}</span>
@@ -35,8 +38,8 @@ function Register() {
         </button>
       </form>
       <div className='auth__link-container'>
-        <p className='text color_text'>Уже зарегестрированны?</p>
-        <Link to='/sign-in' className='auth__link text'>
+        <p className='text auth__text color_text'>Уже зарегестрированны?</p>
+        <Link to='/signin' className='auth__link text'>
           Войти
         </Link>
       </div>

@@ -2,15 +2,25 @@
   border: none;
   background-color: rgba(47, 47, 47, 1);
   border-radius: 8px;
-  margin-top: 10px;
+  margin-top: 7px;
   color: white;
   height: 44px;
   padding-left: 15px;
   outline: none;
+  font-size: 13px;
+}
+
+.input:hover {
+  opacity: 0.8;
+}
+
+.input:focus {
+  opacity: 0.8;
 }
 
 .input-label {
   display: flex;
+  font-size: 10px;
   flex-direction: column;
 }
 

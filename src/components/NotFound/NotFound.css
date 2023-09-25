@@ -14,6 +14,7 @@
 
 .error__message {
   padding-bottom: 184px;
+  font-size: 16px;
 }
 
 .error__button {
@@ -21,4 +22,19 @@
   color: rgba(66, 133, 244, 1);
   border: none;
   cursor: pointer;
+  font-size: 14px;
+}
+
+@media screen and (max-width: 320px) {
+  .error__title {
+    font-size: 80px;
+  }
+  .error__message {
+    font-size: 12px;
+    margin-top: 7px;
+    padding-bottom: 282px;
+  }
+  .error__button {
+    font-size: 12px;
+  }
 }

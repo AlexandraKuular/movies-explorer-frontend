@@ -30,7 +30,7 @@
 .header__auth {
   display: flex;
   list-style-type: none;
-  gap: 20px;
+  gap: 11px;
 }
 
 .header__auth-item {
@@ -40,7 +40,7 @@
 .header__link {
   text-decoration: none;
   color: inherit;
-  padding: 8px 15px;
+  padding: 8px 20px;
   border-radius: 3px;
   box-sizing: border-box;
 }
@@ -104,7 +104,7 @@
   align-self: end;
   cursor: pointer;
   transition: opacity 0.6s;
-  margin-bottom: 105px;
+  margin-bottom: 77px;
 }
 
 .header__burger-close:hover {
@@ -127,7 +127,7 @@
 
   .header__movies {
     position: fixed;
-    padding: 30px;
+    padding: 22px;
     content: "";
     top: 0;
     right: 0;

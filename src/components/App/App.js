@@ -37,10 +37,13 @@ function App() {
         />
         <Route
           path='/profile'
-          element={ <Profile />  }
+          element={
+            <AppLayout>
+              <Profile />
+            </AppLayout>  }
         />
-        <Route path='/sign-in' element={<Login />} />
-        <Route path='/sign-up' element={<Register />} />
+        <Route path='/signin' element={<Login />} />
+        <Route path='/signup' element={<Register />} />
         <Route path='*' element={<NotFound />} />
       </Routes>
     </div>
