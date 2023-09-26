@@ -9,7 +9,7 @@ function Header() {
   return (
     <header className='header'>
       <Link to='/'>
-        <img src={logo} alt='Лого' />
+        <img src={logo} alt='Лого' className='header__logo' />
       </Link>
       {loggedIn ? (<HeaderLoggedIn />) : (<HeaderUnauthorized />)}
     </header>

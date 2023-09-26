@@ -6,7 +6,7 @@ function Register() {
   return (
     <div className='auth'>
       <Link to='/' className='auth__logo'>
-        <img src={logo} alt='Логотип' />
+        <img src={logo} alt='Логотип' className='header__logo' />
       </Link>
       <h2 className='auth__title'>Добро пожаловать!</h2>
       <form className='auth__form'>

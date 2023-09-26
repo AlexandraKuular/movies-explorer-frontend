@@ -9,9 +9,9 @@ function MoviesCardList() {
         <>
         {/* <p className='cards__message text_subtitle'>{''}</p> */}
         <div className='cards__list'>
-            <MoviesCard />
-            <MoviesCard />
-            <MoviesCard />
+            <MoviesCard nameRu='' />
+            <MoviesCard nameRu='' />
+            <MoviesCard nameRu='' />
         </div>
 
           <button className='cards__button text link'>

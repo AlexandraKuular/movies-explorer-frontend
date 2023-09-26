@@ -1,4 +1,4 @@
-function MoviesCard() {
+function MoviesCard(movie) {
 
   return (
     <article className='card'>
@@ -8,7 +8,7 @@ function MoviesCard() {
         rel='noopener noreferrer'
         className='card__trailer-link'
       >
-        <img className='card__image' alt='' />
+        <img className='card__image' alt={movie.nameRu} />
         <button
           className={`card__btn color_secondary link`}
         >Сохранить</button>

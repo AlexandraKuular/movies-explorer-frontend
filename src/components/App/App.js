@@ -7,6 +7,7 @@ import Register from '../Register/Register';
 import Profile from '../Profile/Profile';
 import NotFound from '../NotFound/NotFound';
 import SavedMovies from '../SavedMovies/SavedMovies';
+import Header from '../layout/Header/Header';
 
 function App() {
   return (
@@ -38,9 +39,10 @@ function App() {
         <Route
           path='/profile'
           element={
-            <AppLayout>
+            <>
+              <Header />
               <Profile />
-            </AppLayout>  }
+            </> }
         />
         <Route path='/signin' element={<Login />} />
         <Route path='/signup' element={<Register />} />

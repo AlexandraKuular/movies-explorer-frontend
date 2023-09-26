@@ -51,13 +51,19 @@
   }
   .aboutme__info-title {
     font-size: 40px;
+    padding-top: 5px;
   }
   .aboutme__info-description {
     margin-top: -7px;
     font-size: 12px;
   }
+  .aboutme__info-image {
+    max-width: 255px;
+  }
   .aboutme__info-subtitle {
     font-size: 12px;
+    padding-top: 12px;
+    padding-bottom: 30px;
   }
   .aboutme__links {
     margin-top: 87px;

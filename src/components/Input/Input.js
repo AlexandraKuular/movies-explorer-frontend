@@ -5,7 +5,7 @@ function Input({ title, onChange, name, type, error, disabled, placeholder }) {
     type === 'text'
       ? { minLength: 2, maxLength: 30 }
       : type === 'password'
-      ? { minLength: 3 }
+      ? { minLength: 3, maxLength: 30 }
       : null;
 
   return (

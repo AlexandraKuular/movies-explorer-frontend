@@ -1,6 +1,6 @@
 .filter__label {
   display: block;
-  margin: 30px auto 39px;
+  margin: 28px auto 39px;
   position: relative;
   width: 168px;
   height: 20px;
@@ -12,13 +12,17 @@
   height: 0;
 }
 
+.filter__label:hover {
+  opacity: 0.8;
+}
+
 .filter__switch {
   max-width: 34px;
   max-height: 14px;
   position: absolute;
   cursor: pointer;
-  top: 0;
-  left: 0;
+  top: 3px;
+  left: 7px;
   right: 0;
   bottom: 0;
   background-color: #ccc;
@@ -43,8 +47,8 @@
 .filter__switch:after {
   position: absolute;
   content: "Короткометражки";
-  top: 0;
-  left: 50px;
+  top: -2px;
+  right: -121px;
 }
 
 .filter__input:checked + .filter__switch {
@@ -67,9 +71,26 @@
   background-color: rgba(66, 66, 66, 1);
 }
 
+@media screen and (max-width: 770px) {
+  .filter__switch:after {
+    font-size: 12px;
+  }
+}
+
 @media screen and (max-width: 340px) {
   .filter {
     bottom: 0;
     left: 50%;
+    padding-left: 4px;
+    padding-right: 4px;
+  }
+  .filter__switch {
+    left: 10px;
+  }
+  .filter__switch:after {
+    font-size: 11px;
+  }
+  .filter__switch:after {
+    right: -114px;
   }
 }

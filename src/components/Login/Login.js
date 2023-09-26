@@ -9,7 +9,7 @@ function Login() {
   return (
     <section className='auth'>
       <Link to='/' className='auth__logo'>
-        <img src={logo} alt='Логотип' />
+        <img src={logo} alt='Логотип' className='header__logo' />
       </Link>
       <h2 className='auth__title'>Рады видеть!</h2>
       <form className='auth__form'>
@@ -18,11 +18,13 @@ function Login() {
             type='email'
             name='email'
             title='E-mail'
+            placeholder='E-mail'
           />
           <Input
             type='password'
             name='password'
             title='Пароль'
+            placeholder='Пароль'
           />
         </div>
         <span className='auth__message'>{''}</span>
