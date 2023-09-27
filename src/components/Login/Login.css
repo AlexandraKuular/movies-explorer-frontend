@@ -1,0 +1,149 @@
+.auth {
+  display: flex;
+  max-width: 396px;
+  width: 100%;
+  flex-direction: column;
+  flex-grow: 1;
+  margin: 0 auto;
+  align-items: center;
+  padding-top: 70px;
+}
+
+.auth__logo {
+  align-self: start;
+  padding-bottom: 36px;
+}
+
+.auth__title {
+  margin: 0;
+  padding-bottom: 40px;
+  font-size: 24px;
+  line-height: calc(29 / 24);
+  font-weight: 500;
+  align-self: start;
+}
+
+.auth__form {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.auth__input-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 4px;
+}
+
+.auth__text {
+  font-size: 14px;
+}
+
+.auth__submit {
+  align-self: end;
+  width: 100%;
+  height: 45px;
+  font-size: 14px;
+  line-height: calc(22 / 18);
+  font-weight: 400;
+  border-radius: 3px;
+  border: none;
+  background-color: #4285f4;
+  color: white;
+}
+
+.auth__submit-login {
+  margin-top: 87px;
+}
+
+.auth__submit_disabled {
+  align-self: end;
+  width: 100%;
+  height: 50px;
+  font-size: 18px;
+  line-height: calc(22 / 18);
+  font-weight: 400;
+  border-radius: 2px;
+  border: none;
+  background-color: #4285f4;
+  color: white;
+  opacity: 0.3;
+}
+
+.auth__message {
+  color: #ee3465;
+  font-size: 10px;
+  height: 50px;
+  line-height: 1.2;
+  padding-top: 25px;
+  text-align: center;
+}
+
+.auth__submit:hover {
+  opacity: 0.8;
+  transition: opacity 0.6s;
+  cursor: pointer;
+}
+
+.auth__link-container {
+  display: flex;
+  align-self: center;
+  gap: 6px;
+  padding-top: 14px;
+}
+
+.auth__link {
+  text-decoration: none;
+  color: #4285f4;
+  font-size: 14px;
+}
+
+.auth__link:hover {
+  opacity: 0.6;
+  transition: opacity 0.6s;
+}
+
+.auth__text-login {
+  font-size: 14px;
+}
+
+@media screen and (max-width: 470px) {
+  .auth {
+    max-width: 260px;
+    padding-top: 40px;
+  }
+  .auth__title {
+    padding-bottom: 40px;
+  }
+  .auth__logo {
+    margin-bottom: 10px;
+    align-self: center;
+  }
+  .auth__title {
+    margin-bottom: 39px;
+    align-self: center;
+  }
+  .auth__input-container {
+    gap: 2px;
+  }
+  .auth__message {
+      padding-top: 113px;
+  }
+  .auth__submit {
+    font-size: 12px;
+  }
+  .auth__text {
+    font-size: 12px;
+  }
+  .auth__link {
+    font-size: 12px;
+  }
+  .auth__text-login {
+    font-size: 12px;
+  }
+  .auth__link-container {
+    padding-top: 12px;
+  }
+}
