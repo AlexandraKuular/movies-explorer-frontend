@@ -1,11 +1,12 @@
 //import { placeholder } from "@babel/types";
+import { inputPT } from '../../utils/propTypes'
 
 function Input({ title, onChange, name, type, error, disabled, placeholder }) {
   const requiredProps =
     type === 'text'
       ? { minLength: 2, maxLength: 30 }
       : type === 'password'
-      ? { minLength: 3 }
+      ? { minLength: 3, maxLength: 30 }
       : null;
 
   return (
@@ -25,5 +26,7 @@ function Input({ title, onChange, name, type, error, disabled, placeholder }) {
     </label>
   );
 }
+
+Input.propTypes = inputPT;
 
 export default Input;

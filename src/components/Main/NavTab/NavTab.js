@@ -1,6 +1,6 @@
 import { SECTION_IDS } from '../constants';
 
-const NavBar = () => {
+const NavTab = () => {
   const handleClickButton = sectionId => () => {
     const section = document.getElementById(sectionId);
     window.scrollTo({
@@ -38,4 +38,4 @@ const NavBar = () => {
   );
 };
 
-export default NavBar;
+export default NavTab;

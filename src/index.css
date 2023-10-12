@@ -19,3 +19,5 @@
 @import url(./components/Input/Input.css);
 @import url(./components/Profile/Profile.css);
 @import url(./components/NotFound/NotFound.css);
+@import url(./components/Preloader/Preloader.css);
+@import url(./components/Modal/Modal.css);

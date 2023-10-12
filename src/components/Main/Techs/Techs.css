@@ -93,6 +93,7 @@
     gap: 24px;
   }
   .techs__list {
+    padding: 0;
     width: 63%;
   }
   .tech__text {

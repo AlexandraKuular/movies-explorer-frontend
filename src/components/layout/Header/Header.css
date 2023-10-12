@@ -12,9 +12,13 @@
   transition: width 0.6s;
 }
 
+.header__logo:hover {
+  opacity: 0.8;
+}
+
 .header__navigate-movies {
   width: 100%;
-  padding-left: 44px;
+  padding-left: 80px;
 }
 
 .header__movies {
@@ -23,6 +27,7 @@
   padding: 0;
   margin: 0;
   width: 100%;
+  font-size: 13px;
   gap: 16px;
   align-items: center;
 }
@@ -61,6 +66,7 @@
 .header__movies-item:last-child {
   display: flex;
   text-align: center;
+  font-size: 14px;
   margin-left: auto;
   justify-content: flex-end;
 }
@@ -193,7 +199,7 @@
   }
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 350px) {
   .header {
     padding: 18px 14px;
   }
@@ -212,5 +218,15 @@
   }
   .header__links {
     gap: 14px;
+  }
+  .header__burger-line {
+    background-color: white;
+    width: 22px;
+    height: 2.8px;
+  }
+  .header__burger {
+    max-height: 20.5px;
+    margin-right: -2px;
+    margin-top: -1px;
   }
 }
