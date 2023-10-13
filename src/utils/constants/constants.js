@@ -1,5 +1,5 @@
 export const moviesApiAddress  = 'https://api.nomoreparties.co/';
-export const backendApiAddress = 'https://localhost:3000';
+export const backendApiAddress = 'https://api.movies.explorer.alexkuular.nomoredomainsrocks.ru';
 
 export const regForSymbols  = /[_~!@#$%^&*()\[\]+`'";:<>\/\\|=]/g;
 export const regForName     = /[a-z-. а-яё]+/g;
