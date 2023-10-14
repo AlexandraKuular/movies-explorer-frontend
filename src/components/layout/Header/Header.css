@@ -134,7 +134,7 @@
   .header__movies {
     position: fixed;
     padding: 22px;
-    content: "";
+    content: '';
     top: 0;
     right: 0;
     width: 520px;
@@ -149,7 +149,7 @@
 
   .header__movies:before {
     position: absolute;
-    content: "";
+    content: '';
     top: 0;
     right: 0;
     left: 0;

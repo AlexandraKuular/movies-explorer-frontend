@@ -28,12 +28,12 @@
 
 .profile__label:first-child:before {
   position: absolute;
-  content: "Имя";
+  content: 'Имя';
 }
 
 .profile__label:nth-last-child(2):before {
   position: absolute;
-  content: "E-mail";
+  content: 'E-mail';
 }
 
 .profile__input {

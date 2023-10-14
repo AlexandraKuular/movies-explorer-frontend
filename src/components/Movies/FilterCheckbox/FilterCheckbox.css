@@ -33,7 +33,7 @@
 
 .filter__switch:before {
   position: absolute;
-  content: "";
+  content: '';
   height: 10px;
   width: 10px;
   left: 2px;
@@ -46,7 +46,7 @@
 
 .filter__switch:after {
   position: absolute;
-  content: "Короткометражки";
+  content: 'Короткометражки';
   top: -2px;
   right: -121px;
 }

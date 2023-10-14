@@ -5,7 +5,7 @@ import { useStore } from '../../../providers/StoreProvider';
 import { moviesApiAddress } from '../../../utils/constants/constants';
 import { movieCardPT } from '../../../utils/propTypes';
 
-function MoviesCard(movie) {
+function MoviesCard({ movie }) {
   const [state, dispatch] = useStore();
   const [isMovieSaved, setIsMovieSaved] = useState();
   const [savedMovies, setSavedMovies] = useState();
@@ -50,11 +50,12 @@ function MoviesCard(movie) {
         className='card__trailer-link'
       >
         <img className='card__image' src={imageUrl} alt={movie.nameRu} />
+        </a>
         <button
           className={`card__btn color_secondary link ${buttonClassName}`}
           onClick={handleClickFavorite}
         ></button>
-      </a>
+      
       <div className='card__header'>
         <div><h3 className='card__title text_subtitle'>{movie.nameRU}</h3></div>
         <div><p className='card__duration text color_text'>{`${ hours === 0 ? '' : hours + 'ч' } ${minutes}м`}</p></div>

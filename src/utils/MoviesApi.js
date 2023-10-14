@@ -11,7 +11,8 @@ class MoviesApi {
   };
 
   getMovies() {
-    return fetch(`${this._address}/beatfilm-movies`).then(this._handleResponse);
+    return fetch(`${this._address}/beatfilm-movies`)
+      .then(this._handleResponse);
   }
 }
 

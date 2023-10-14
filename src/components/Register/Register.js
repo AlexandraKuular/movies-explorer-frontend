@@ -14,25 +14,25 @@ function Register() {
   const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    password: "",
+    name: '',
+    email: '',
+    password: '',
   });
-  const [error, setError] = useState({ name: "", email: "", password: "" });
+  const [error, setError] = useState({ name: '', email: '', password: '' });
   const [buttonProps, setButtonProps] = useState({
     disabled: true,
-    className: "auth__submit_disabled",
+    className: 'auth__submit_disabled',
   });
 
   const handleChange = (e) => {
     let errorMessage = e.target.validationMessage;
-    if (e.target.name === "email") {
+    if (e.target.name === 'email') {
       errorMessage = errorMessage || isEmail(e.target.value);
       setError({
         ...error,
         email: errorMessage,
       });
-    } else if (e.target.name === "name") {
+    } else if (e.target.name === 'name') {
       errorMessage = errorMessage || isName(e.target.value);
       setError({
         ...error,
@@ -48,25 +48,25 @@ function Register() {
 
     setFormData({ ...formData, [e.target.name]: e.target.value });
 
-    const haveSomeError = Object.keys(error).some((key) => formData[key] === "" || errorMessage);
+    const haveSomeError = Object.keys(error).some((key) => formData[key] === '' || errorMessage);
     setButtonProps({
       disabled: haveSomeError,
-      className: haveSomeError ? "auth__submit_disabled" : "auth__submit",
+      className: haveSomeError ? 'auth__submit_disabled' : 'auth__submit',
     });
   };
 
   useEffect(() => {
-    loggedIn && navigate("/movies");
+    loggedIn && navigate('/movies');
   }, [loggedIn, navigate]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     setDisabled(true);
-    setButtonProps({ disabled: true, className: "auth__submit_disabled" });
+    setButtonProps({ disabled: true, className: 'auth__submit_disabled' });
     onRegister(dispatch, formData).then(() => {
       setTimeout(() => {
         setDisabled(false);
-        setButtonProps({ disabled: false, className: "auth__submit" });
+        setButtonProps({ disabled: false, className: 'auth__submit' });
       }, 2000);
     });
   };
@@ -108,9 +108,6 @@ function Register() {
           />
         </div>
         <span className='auth__message'>{authMessage}</span>
-        {/* <button
-          className={`auth__submit text`}
-        > */}
         <button
           className={`${buttonProps.className} text`}
           disabled={disabled || buttonProps.disabled}

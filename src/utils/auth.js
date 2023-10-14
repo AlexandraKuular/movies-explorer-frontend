@@ -16,7 +16,10 @@ class Auth {
     return fetch(`${this._address}/signin`, {
       method: 'POST',
       credentials: 'include',
-      headers: this._headers,
+      headers: {
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': 'http://movies.explorer.alexkuular.nomoredomainsrocks.ru',
+      },
       body: JSON.stringify({ email, password }),
     }).then(this._handleResponse);
   }
@@ -25,7 +28,10 @@ class Auth {
     return fetch(`${this._address}/signup`, {
       method: 'POST',
       credentials: 'include',
-      headers: this._headers,
+      headers: {
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': 'http://movies.explorer.alexkuular.nomoredomainsrocks.ru',
+      },
       body: JSON.stringify({ name, email, password }),
     }).then(this._handleResponse);
   }
@@ -34,7 +40,10 @@ class Auth {
     return fetch(`${this._address}/users/me`, {
       method: 'GET',
       credentials: 'include',
-      headers: this._headers,
+      headers: {
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': 'http://movies.explorer.alexkuular.nomoredomainsrocks.ru',
+      },
     }).then(this._handleResponse);
   }
 
@@ -42,7 +51,10 @@ class Auth {
     return fetch(`${this._address}/signout`, {
       method: 'GET',
       credentials: 'include',
-      headers: this._headers,
+      headers: {
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': 'http://movies.explorer.alexkuular.nomoredomainsrocks.ru',
+      },
     }).then(this._handleResponse);
   }
 }

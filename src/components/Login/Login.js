@@ -88,10 +88,6 @@ function Login() {
           />
         </div>
         <span className='auth__message'>{authMessage}</span>
-        {/* <button
-          className={`auth__submit auth__submit-login text`}
-          disabled={''}
-        > */}
         <button
           className={`${buttonProps.className} text`}
           disabled={disabled || buttonProps.disabled}

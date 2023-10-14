@@ -1,4 +1,3 @@
-//import { useNavigate } from 'react-router-dom';
 import { useCallback, useEffect, useState } from 'react';
 import { logOut, updateUser, UPDATE_USER } from '../../providers/actions/user';
 import { isName, isEmail } from '../../utils/validation';
@@ -7,11 +6,6 @@ import { TOOL_TIP } from '../../providers/actions/toolTip';
 import { resMessages } from '../../utils/constants/constants';
 
 function Profile() {
-  // const navigate = useNavigate();
-
-  // function handleLogout() {
-  //   navigate('/');
-  // }
 
   const [state, dispatch] = useStore();
   const userInfo = state.user;
@@ -80,7 +74,7 @@ function Profile() {
             className='profile__input'
             minLength={2}
             placeholder={userInfo.name}
-            //value={userInfo.name}
+            value={userInfo.name}
             onChange={handleChange}
           />
         </label>
@@ -90,13 +84,12 @@ function Profile() {
             type='text'
             className='profile__input'
             placeholder={userInfo.email}
-            //value={userInfo.email}
+            value={userInfo.email}
             onChange={handleChange}
           />
         </label>
         <button
           type='submit'
-          //className={`profile__submit text`}
           className={`${buttonProps.className} text`}
           onClick={handleSubmit}
           disabled={buttonProps.disabled}

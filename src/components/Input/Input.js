@@ -1,4 +1,3 @@
-//import { placeholder } from "@babel/types";
 import { inputPT } from '../../utils/propTypes'
 
 function Input({ title, onChange, name, type, error, disabled, placeholder }) {
