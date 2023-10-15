@@ -34,6 +34,14 @@ export const userReducer = (state, action) => {
         ...state,
         loggedIn: false,
         user: { _id: '', name: '', email: '' },
+        mainMovie: {
+          ...state.mainMovie,
+          searchText: '',
+          showedMovies: 0,
+          filterShortFilms: false,
+          movies: [],
+          saved: [],
+        },
       };
 
     case UPDATE_USER:

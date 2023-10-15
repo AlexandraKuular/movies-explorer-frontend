@@ -24,7 +24,7 @@ export const updateUser = (dispatch, body) => {
 export const onLogin = (dispatch, body) => {
   return auth
     .login(body)
-    .then(({ token }) => {
+    .then(() => {
       dispatch({ type: LOGIN_USER });
       return true;
     })

@@ -6,7 +6,6 @@ import { TOOL_TIP } from '../../providers/actions/toolTip';
 import { resMessages } from '../../utils/constants/constants';
 
 function Profile() {
-
   const [state, dispatch] = useStore();
   const userInfo = state.user;
   const [userData, setUserData] = useState({
@@ -17,15 +16,25 @@ function Profile() {
     disabled: true,
     className: 'profile__submit_disabled',
   });
+  const [isFormActive, setFormActive] = useState(false);
 
   const checkEdit = useCallback(() => {
-    if (userInfo.name !== userData.name || userInfo.email !== userData.email) {
-      if (!isName(userInfo.name) && !isEmail(userInfo.email)) {
-        setButtonProps({ disabled: false, className: 'profile__submit' });
+    if (
+      userInfo.name !== userData.name ||
+      (userInfo.email !== userData.email && !isFormActive)
+    ) {
+      if (!isName(userInfo.name) && !isEmail(userInfo.email) && isFormActive) {
+        setButtonProps({
+          disabled: false,
+          className: 'profile__submit-active',
+        });
         return;
       }
     }
-    setButtonProps({ disabled: true, className: 'profile__submit_disabled' });
+    setButtonProps({
+      disabled: true,
+      className: 'profile__submit-active profile__submit-active_disabled',
+    });
   }, [userData, userInfo]);
 
   useEffect(() => {
@@ -45,6 +54,7 @@ function Profile() {
           success: true,
           message: 'Данные пользователя успешно изменены!',
         });
+        setFormActive(false);
       } else {
         dispatch({
           type: TOOL_TIP,
@@ -56,11 +66,17 @@ function Profile() {
     setUserData(userInfo);
   }
 
+  function handleFormActive(e) {
+    e.preventDefault();
+    setFormActive(true);
+  }
+
   function handleLogout() {
     logOut(dispatch);
     if (localStorage.getItem('moviesLocalState')) {
       localStorage.removeItem('moviesLocalState');
     }
+    localStorage.removeItem('moviesAll');
   }
 
   return (
@@ -88,18 +104,32 @@ function Profile() {
             onChange={handleChange}
           />
         </label>
+
         <button
+          type='submit'
+          className={`profile__submit ${
+            isFormActive ? buttonProps.className : ''
+          } text`}
+          onClick={isFormActive ? handleSubmit : handleFormActive}
+          disabled={isFormActive && buttonProps.disabled}
+        >
+          {isFormActive ? 'Сохранить' : 'Редактировать'}
+        </button>
+
+        {/* <button
           type='submit'
           className={`${buttonProps.className} text`}
           onClick={handleSubmit}
           disabled={buttonProps.disabled}
         >
           Редактировать
-        </button>
+        </button> */}
       </form>
-      <button className='profile__logout link text' onClick={handleLogout} >
-        Выйти из аккаунта
-      </button>
+      {!isFormActive && (
+        <button className='profile__logout link text' onClick={handleLogout}>
+          Выйти из аккаунта
+        </button>
+      )}
     </section>
   );
 }

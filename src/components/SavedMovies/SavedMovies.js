@@ -37,20 +37,31 @@ function SavedMovies() {
     dispatch({ type: SAVED_MOVIES_NOT_FOUND });
   }, [dispatch]);
 
-  const handleClickMoreMovies = useCallback(
-    (count) => {
-      dispatch({ type: ADD_SHOWED_SAVED_MOVIES, count });
-    },
-    [dispatch]
-  );
+  // const handleClickMoreMovies = useCallback(
+  //   (count) => {
+  //     dispatch({ type: ADD_SHOWED_SAVED_MOVIES, count });
+  //   },
+  //   [dispatch]
+  // );
 
   return (
     <main className='movies'>
       <div className='wrapper'>
-        <SearchForm searchText={movieCardListProps.searchText} handleChange={handleChange} handleSubmit={handleSubmit} >
-          <FilterCheckbox filterShortFilms={movieCardListProps.filterShortFilms} onChangeFilter={onChangeFilter} />
+        <SearchForm
+          searchText={movieCardListProps.searchText}
+          handleChange={handleChange}
+          handleSubmit={handleSubmit}
+        >
+          <FilterCheckbox
+            filterShortFilms={movieCardListProps.filterShortFilms}
+            onChangeFilter={onChangeFilter}
+          />
         </SearchForm>
-        <MoviesCardList  {...movieCardListProps} handleClickMoreMovies={handleClickMoreMovies} isNotFound={isNotFound} />
+        <MoviesCardList
+          {...movieCardListProps}
+          // handleClickMoreMovies={handleClickMoreMovies}
+          isNotFound={isNotFound}
+        />
       </div>
     </main>
   );

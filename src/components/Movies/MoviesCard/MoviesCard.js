@@ -64,6 +64,6 @@ function MoviesCard({ movie }) {
   );
 }
 
-MoviesCard.propTypes = movieCardPT;
+// MoviesCard.propTypes = movieCardPT;
 
 export default MoviesCard;

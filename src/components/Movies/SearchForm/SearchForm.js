@@ -1,4 +1,4 @@
-import { searchFormPT } from '../../../utils/propTypes'
+import { searchFormPT } from '../../../utils/propTypes';
 
 function SearchForm({ searchText, handleChange, handleSubmit, children }) {
   return (

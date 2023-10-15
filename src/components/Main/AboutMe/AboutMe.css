@@ -10,16 +10,19 @@
   display: flex;
   padding-top: 90px;
   gap: 50px;
+  justify-content: space-between;
 }
 
 .aboutme__info-image {
   max-height: 327px;
   max-width: 270px;
-  width: 40%;
+  width: 100%;
   border-radius: 10px;
 }
 
 .aboutme__info-description {
+  
+  max-width: 600px;
   display: flex;
   flex-direction: column;
   align-content: stretch;

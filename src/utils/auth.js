@@ -18,7 +18,6 @@ class Auth {
       credentials: 'include',
       headers: {
         'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': 'http://movies.explorer.alexkuular.nomoredomainsrocks.ru',
       },
       body: JSON.stringify({ email, password }),
     }).then(this._handleResponse);
@@ -30,7 +29,6 @@ class Auth {
       credentials: 'include',
       headers: {
         'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': 'http://movies.explorer.alexkuular.nomoredomainsrocks.ru',
       },
       body: JSON.stringify({ name, email, password }),
     }).then(this._handleResponse);
@@ -42,7 +40,6 @@ class Auth {
       credentials: 'include',
       headers: {
         'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': 'http://movies.explorer.alexkuular.nomoredomainsrocks.ru',
       },
     }).then(this._handleResponse);
   }
@@ -53,7 +50,6 @@ class Auth {
       credentials: 'include',
       headers: {
         'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': 'http://movies.explorer.alexkuular.nomoredomainsrocks.ru',
       },
     }).then(this._handleResponse);
   }

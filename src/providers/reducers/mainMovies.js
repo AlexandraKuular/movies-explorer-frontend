@@ -5,7 +5,7 @@ import {
   REQUEST_MOVIES_FAILED,
   MOVIES_CHANGE_FILTER,
   MOVIES_SEARCH_TEXT,
-  ADD_SHOWED_MOVIES,
+  // ADD_SHOWED_MOVIES,
   MOVIES_NOT_FOUND,
   SET_STATE_MAIN_MOVIES,
 } from '../actions/mainMovies';
@@ -17,17 +17,21 @@ export const movieReducer = (state, action) => {
         ...state,
         mainMovie: {
           ...state.mainMovie,
-          notFound: state.mainMovie.filterShortFilms ? infoMessages.notFound : '',
+          notFound: state.mainMovie.filterShortFilms
+            ? infoMessages.notFound
+            : '',
         },
       };
-    case ADD_SHOWED_MOVIES:
-      return {
-        ...state,
-        mainMovie: {
-          ...state.mainMovie,
-          showedMovies: state.mainMovie.showedMovies + action.count,
-        },
-      };
+    // case ADD_SHOWED_MOVIES:
+    //   console.log(state.mainMovie, action);
+    //   return {
+    //     ...state,
+    //     mainMovie: {
+    //       ...state.mainMovie,
+    //       showedMovies: state.mainMovie.showedMovies + action.count,
+    //       // showedMovies: 0,
+    //     },
+    //   };
     case MOVIES_CHANGE_FILTER:
       return {
         ...state,
@@ -35,7 +39,9 @@ export const movieReducer = (state, action) => {
           ...state.mainMovie,
           filterShortFilms: action.checked,
           notFound:
-            !action.checked && state.mainMovie.movies.length && state.mainMovie.notFound
+            !action.checked &&
+            state.mainMovie.movies.length &&
+            state.mainMovie.notFound
               ? ''
               : state.mainMovie.notFound,
         },

@@ -11,17 +11,25 @@ export const SET_STATE_MAIN_MOVIES = 'SET_STATE_MAIN_MOVIES';
 
 export function searchMovies(dispatch) {
   dispatch({ type: REQUEST_MOVIES });
-  moviesApi
-    .getMovies()
-    .then((movies) => {
-      dispatch({
-        type: SEARCH_MOVIES,
-        movies,
+  if (!('moviesAll' in localStorage)) {
+    moviesApi
+      .getMovies()
+      .then((movies) => {
+        dispatch({
+          type: SEARCH_MOVIES,
+          movies,
+        });
+        localStorage.setItem('moviesAll', JSON.stringify(movies));
+      })
+      .catch((err) => {
+        dispatch({
+          type: REQUEST_MOVIES_FAILED,
+        });
       });
-    })
-    .catch((err) => {
-      dispatch({
-        type: REQUEST_MOVIES_FAILED,
-      });
+  } else {
+    dispatch({
+      type: SEARCH_MOVIES,
+      movies: JSON.parse(localStorage.getItem('moviesAll')),
     });
+  }
 }
