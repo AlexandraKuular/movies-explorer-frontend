@@ -20,8 +20,7 @@ function Profile() {
 
   const checkEdit = useCallback(() => {
     if (
-      userInfo.name !== userData.name ||
-      (userInfo.email !== userData.email && !isFormActive)
+      userInfo.name !== userData.name || userInfo.email !== userData.email
     ) {
       if (!isName(userInfo.name) && !isEmail(userInfo.email) && isFormActive) {
         setButtonProps({
@@ -115,15 +114,6 @@ function Profile() {
         >
           {isFormActive ? 'Сохранить' : 'Редактировать'}
         </button>
-
-        {/* <button
-          type='submit'
-          className={`${buttonProps.className} text`}
-          onClick={handleSubmit}
-          disabled={buttonProps.disabled}
-        >
-          Редактировать
-        </button> */}
       </form>
       {!isFormActive && (
         <button className='profile__logout link text' onClick={handleLogout}>
