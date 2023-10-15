@@ -1,5 +1,5 @@
-import { useCallback, useEffect, useState } from 'react';
-import { logOut, updateUser, UPDATE_USER } from '../../providers/actions/user';
+import { useEffect, useState } from 'react';
+import { logOut, updateUser } from '../../providers/actions/user';
 import { isName, isEmail } from '../../utils/validation';
 import { useStore } from '../../providers/StoreProvider';
 import { TOOL_TIP } from '../../providers/actions/toolTip';
@@ -14,55 +14,71 @@ function Profile() {
   });
   const [buttonProps, setButtonProps] = useState({
     disabled: true,
-    className: 'profile__submit_disabled',
+    className: 'profile__submit-active_disabled',
   });
   const [isFormActive, setFormActive] = useState(false);
+  const [disabled, setDisabled] = useState(false);
 
-  const checkEdit = useCallback(() => {
-    if (
-      userInfo.name !== userData.name || userInfo.email !== userData.email
-    ) {
-      if (!isName(userInfo.name) && !isEmail(userInfo.email) && isFormActive) {
-        setButtonProps({
-          disabled: false,
-          className: 'profile__submit-active',
-        });
-        return;
-      }
-    }
-    setButtonProps({
-      disabled: true,
-      className: 'profile__submit-active profile__submit-active_disabled',
-    });
-  }, [userData, userInfo]);
+  const [error, setError] = useState({ name: '', email: '' });
 
   useEffect(() => {
-    checkEdit();
-  }, [checkEdit]);
+    if (userInfo.name === userData.name && userInfo.email === userData.email) {
+      setButtonProps({
+        disabled: true,
+        className: 'profile__submit-active_disabled',
+      });
+      return;
+    }
+  }, [userData]);
 
-  function handleChange(e) {
-    dispatch({ type: UPDATE_USER, user: { [e.target.name]: e.target.value } });
-  }
+  const handleChange = (e) => {
+    let errorMessage = e.target.validationMessage;
+    if (e.target.name === 'email') {
+      errorMessage = errorMessage || isEmail(e.target.value);
+      setError({
+        ...error,
+        email: errorMessage,
+      });
+    } else {
+      errorMessage = errorMessage || isName(e.target.value);
+      setError({
+        ...error,
+        name: errorMessage,
+      });
+    }
+
+    setUserData({ ...userData, [e.target.name]: e.target.value });
+
+    const haveSomeError = Object.keys(error).some(
+      (key) => userData[key] === '' || errorMessage
+    );
+    setButtonProps({
+      disabled: haveSomeError,
+      className: haveSomeError ? 'profile__submit-active_disabled' : '',
+    });
+  };
 
   function handleSubmit(e) {
     e.preventDefault();
-    updateUser(dispatch, userInfo).then(({ success, statusCode = 0 }) => {
-      if (success) {
-        dispatch({
-          type: TOOL_TIP,
-          success: true,
-          message: 'Данные пользователя успешно изменены!',
-        });
-        setFormActive(false);
-      } else {
-        dispatch({
-          type: TOOL_TIP,
-          success: false,
-          message: resMessages[statusCode],
-        });
-      }
-    });
-    setUserData(userInfo);
+    setDisabled(true);
+    updateUser(dispatch, userData)
+      .then(({ success, statusCode = 0 }) => {
+        if (success) {
+          dispatch({
+            type: TOOL_TIP,
+            success: true,
+            message: 'Данные пользователя успешно изменены!',
+          });
+          setFormActive(false);
+        } else {
+          dispatch({
+            type: TOOL_TIP,
+            success: false,
+            message: resMessages[statusCode],
+          });
+        }
+        setDisabled(false);
+      })
   }
 
   function handleFormActive(e) {
@@ -89,9 +105,17 @@ function Profile() {
             className='profile__input'
             minLength={2}
             placeholder={userInfo.name}
-            value={userInfo.name}
+            value={userData.name}
             onChange={handleChange}
+            disabled={!isFormActive}
           />
+          <span
+            className={`profile-error ${
+              error.name && 'profil-error_visible'
+            } text`}
+          >
+            {error.name}
+          </span>
         </label>
         <label className='profile__label'>
           <input
@@ -99,18 +123,28 @@ function Profile() {
             type='text'
             className='profile__input'
             placeholder={userInfo.email}
-            value={userInfo.email}
+            value={userData.email}
             onChange={handleChange}
+            disabled={!isFormActive}
           />
+          <span
+            className={`profile-error ${
+              error.email && 'profil-error_visible'
+            } text`}
+          >
+            {error.email}
+          </span>
         </label>
 
         <button
           type='submit'
           className={`profile__submit ${
-            isFormActive ? buttonProps.className : ''
+            isFormActive
+              ? `profile__submit-active ${buttonProps.className}`
+              : ''
           } text`}
           onClick={isFormActive ? handleSubmit : handleFormActive}
-          disabled={isFormActive && buttonProps.disabled}
+          disabled={isFormActive && (buttonProps.disabled || disabled)}
         >
           {isFormActive ? 'Сохранить' : 'Редактировать'}
         </button>

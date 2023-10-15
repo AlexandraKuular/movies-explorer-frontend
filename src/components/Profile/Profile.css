@@ -18,7 +18,7 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 18px;
 }
 
 .profile__label {
@@ -86,6 +86,14 @@
   cursor: pointer;
 }
 
+.profile-error {
+  display: block;
+  box-sizing: border-box;
+  color: #ee3465;
+  font-size: 10px;
+  height: 12px;
+  line-height: 1.2;
+}
 
 
 @media screen and (max-width: 768px) {

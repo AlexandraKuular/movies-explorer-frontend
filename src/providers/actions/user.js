@@ -76,6 +76,7 @@ export const getUser = (dispatch) => {
     })
     .catch(() => {
       console.log('Пользователь не авторизован.');
+      localStorage.clear();
       return false;
     });
 };

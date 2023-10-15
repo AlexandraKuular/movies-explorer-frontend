@@ -4,8 +4,8 @@ export const backendApiAddress =
 // export const backendApiAddress = 'http://localhost:3000';
 
 export const regForSymbols = /[_~!@#$%^&*()\\[\]+`'";:<>\\/\\|=]/g;
-export const regForName = /[a-z-. а-яё]+/g;
-export const regForPassword = /[0-9a-z-а-яё]+/g;
+export const regForName = /^[a-z-. а-яё]+$/g;
+export const regForPassword = /^[0-9a-z-а-яё]+$/g;
 
 export const validationMessages = {
   name: 'Имя содержит недопустимые символы.',

@@ -45,6 +45,7 @@ export const userReducer = (state, action) => {
       };
 
     case UPDATE_USER:
+      console.log(state.user);
       return { ...state, user: { ...state.user, ...action.user } };
 
     default:
